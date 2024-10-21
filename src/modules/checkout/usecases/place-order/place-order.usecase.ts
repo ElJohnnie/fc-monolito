@@ -79,7 +79,7 @@ export class PlaceOrderUseCase implements UseCaseInterface {
             items: products.map((p) => ({
               id: p.id.id,
               name: p.name,
-              price: p.salesPrice,
+              price: p.purchasePrice,
             })),
           })
         : null;
@@ -123,12 +123,12 @@ export class PlaceOrderUseCase implements UseCaseInterface {
       throw new Error("Product not found");
     }
 
-    const { id, name, description, salesPrice } = product;
+    const { id, name, description, purchasePrice } = product;
     return new Product({
       id: new Id(id),
       name,
       description,
-      salesPrice,
+      purchasePrice,
     });
   }
 }

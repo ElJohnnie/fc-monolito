@@ -36,13 +36,13 @@ describe("OrderRepository test", () => {
   it("should add an order", async () => {
     const product1 = new Product({
       name: "Product 1",
-      salesPrice: 100,
+      purchasePrice: 100,
       description: "Description 1",
     });
 
     const product2 = new Product({
       name: "Product 2",
-      salesPrice: 200,
+      purchasePrice: 200,
       description: "Description 2",
     });
 
@@ -89,7 +89,7 @@ describe("OrderRepository test", () => {
           updatedAt: mockDate,
           name: "Product 1",
           description: "Description 1",
-          salesPrice: 100,
+          purchasePrice: 100,
         },
         {
           id: "63",
@@ -97,7 +97,7 @@ describe("OrderRepository test", () => {
           updatedAt: mockDate,
           name: "Product 2",
           description: "Description 2",
-          salesPrice: 200,
+          purchasePrice: 200,
         },
       ],
     };
@@ -122,8 +122,8 @@ describe("OrderRepository test", () => {
     const firstProductResult = result.products[0];
     expect(firstProductResult.id).toEqual(orderData.products[0].id);
     expect(firstProductResult.name).toEqual(orderData.products[0].name);
-    expect(firstProductResult.salesPrice).toEqual(
-      orderData.products[0].salesPrice
+    expect(firstProductResult.purchasePrice).toEqual(
+      orderData.products[0].purchasePrice
     );
     expect(firstProductResult.description).toEqual(
       orderData.products[0].description

@@ -51,7 +51,7 @@ export class Order extends BaseEntity {
 
   get total() {
     return this._products.reduce((total, product) => {
-      return total + product.salesPrice;
+      return total + product.purchasePrice;
     }, 0);
   }
 }

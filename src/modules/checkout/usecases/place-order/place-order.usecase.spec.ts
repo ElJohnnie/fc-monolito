@@ -97,7 +97,7 @@ describe("PlaceOrderUseCase unit test", () => {
           id: "1",
           name: "Product 1",
           description: "Description 1",
-          salesPrice: 100,
+          purchasePrice: 100,
         }),
       };
 
@@ -109,7 +109,7 @@ describe("PlaceOrderUseCase unit test", () => {
           id: new Id("1"),
           name: "Product 1",
           description: "Description 1",
-          salesPrice: 100,
+          purchasePrice: 100,
         })
       );
 
@@ -212,13 +212,13 @@ describe("PlaceOrderUseCase unit test", () => {
           id: new Id("1"),
           name: "Product 1",
           description: "Description 1",
-          salesPrice: 40,
+          purchasePrice: 40,
         }),
         "2": new Product({
           id: new Id("2"),
           name: "Product 2",
           description: "Description 2",
-          salesPrice: 30,
+          purchasePrice: 30,
         }),
       };
 
@@ -316,12 +316,12 @@ describe("PlaceOrderUseCase unit test", () => {
             {
               id: products["1"].id.id,
               name: products["1"].name,
-              price: products["1"].salesPrice,
+              price: products["1"].purchasePrice,
             },
             {
               id: products["2"].id.id,
               name: products["2"].name,
-              price: products["2"].salesPrice,
+              price: products["2"].purchasePrice,
             },
           ],
         });

@@ -21,7 +21,7 @@ describe("E2E test for checkout", () => {
       street: "Street",
       city: "City",
       state: "State",
-      zipcode: "123123",
+      zipCode: "123123",
       document: "0000",
       createdAt: new Date(),
       updatedAt: new Date(),

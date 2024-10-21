@@ -12,9 +12,16 @@ describe("E2E test for client", () => {
 
   it("should create a client", async () => {
     const response = await request(app).post("/clients").send({
-      id: "1",
       name: "john doe",
       email: "john.doe@email.com",
+      address: {
+        street: "Main Street",
+        number: "123",
+        complement: "Apt 1",
+        city: "New York",
+        state: "NY",
+        zipCode: "12345",
+      },
       document: "215251",
     });
 

@@ -9,10 +9,9 @@ clientsRoute.post("/", async (request: Request, response: Response) => {
   const facade = ClientAdmFacadeFactory.create();
 
   try {
-    const { id, name, email, address, document } = request.body;
+    const {name, email, address, document } = request.body;
 
     const clientDto: AddClientFacadeInputDto = {
-      id,
       name,
       email,
       address,
@@ -23,6 +22,7 @@ clientsRoute.post("/", async (request: Request, response: Response) => {
 
     response.status(201).send();
   } catch (error) {
+    console.log(error);
     response.status(400).send(error);
   }
 });

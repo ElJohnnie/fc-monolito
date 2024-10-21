@@ -69,7 +69,7 @@ describe("InvoiceRepository test", () => {
     expect(result.complement).toBe(invoice.address.complement);
     expect(result.city).toBe(invoice.address.city);
     expect(result.state).toBe(invoice.address.state);
-    expect(result.zipcode).toBe(invoice.address.zipCode);
+    expect(result.zipCode).toBe(invoice.address.zipCode);
     expect(result.items[0].id).toBe(invoice.items[0].id.id);
     expect(result.items[0].name).toBe(invoice.items[0].name);
     expect(result.items[0].price).toBe(invoice.items[0].price);
