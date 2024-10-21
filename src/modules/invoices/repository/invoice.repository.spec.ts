@@ -1,8 +1,8 @@
 import { Sequelize } from "sequelize-typescript";
 import Id from "../../@shared/domain/value-object/id.value-object";
-import Address from "../domain/address.vo";
+import Address from "../../@shared/domain/value-object/address";
 import Invoice from "../domain/invoice.entity";
-import Product from "../domain/product.entity";
+import InvoiceItem from "../domain/invoice-item.entity";
 import { InvoiceModel } from "./invoice.model";
 import InvoiceRepository from "./invoice.repository";
 import { InvoiceItemModel } from "./item.model";
@@ -32,21 +32,21 @@ describe("InvoiceRepository test", () => {
       id: new Id("1"),
       name: "Teste",
       document: "12345678901",
-      address: new Address({
-        street: "Rua Teste",
-        number: "123",
-        complement: "complemento",
-        city: "Teste",
-        state: "Teste",
-        zipCode: "12345678",
-      }),
+      address: new Address(
+        "Rua Teste",
+        "123",
+        "complemento",
+        "Teste",
+        "Teste",
+        "12345678"
+      ),
       items: [
-        new Product({
+        new InvoiceItem({
           id: new Id("1"),
           name: "Teste",
           price: 10,
         }),
-        new Product({
+        new InvoiceItem({
           id: new Id("2"),
           name: "Teste 2",
           price: 20,
@@ -85,21 +85,21 @@ describe("InvoiceRepository test", () => {
       id: new Id("1"),
       name: "Teste",
       document: "12345678901",
-      address: new Address({
-        street: "Rua Teste",
-        number: "123",
-        complement: "complemento",
-        city: "Teste",
-        state: "Teste",
-        zipCode: "12345678",
-      }),
+      address: new Address(
+        "Rua Teste",
+        "123",
+        "complemento",
+        "Teste",
+        "Teste",
+        "12345678"
+      ),
       items: [
-        new Product({
+        new InvoiceItem({
           id: new Id("1"),
           name: "Teste",
           price: 10,
         }),
-        new Product({
+        new InvoiceItem({
           id: new Id("2"),
           name: "Teste 2",
           price: 20,

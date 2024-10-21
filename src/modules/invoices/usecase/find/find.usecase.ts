@@ -12,12 +12,8 @@ export default class FindInvoiceUseCase {
   ): Promise<FindInvoiceUseCaseOutputDTO> {
     const invoice = await this._invoiceRepository.find(input.id);
 
-    return this.toDTO(invoice);
-  }
-
-  private toDTO(invoice: any): FindInvoiceUseCaseOutputDTO {
     return {
-      id: invoice.id,
+      id: invoice.id.toString(),
       name: invoice.name,
       document: invoice.document,
       address: {

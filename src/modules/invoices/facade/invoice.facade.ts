@@ -8,7 +8,6 @@ import InvoiceFacadeInterface, {
 
 export default class InvoiceFacade implements InvoiceFacadeInterface {
   constructor(
-    private _invoiceRepository: InvoiceGateway,
     private _generateInvoiceUseCase: UseCaseInterface,
     private _findInvoiceUseCase: UseCaseInterface
   ) {}
