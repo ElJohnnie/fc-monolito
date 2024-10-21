@@ -9,7 +9,7 @@ type ClientProps = {
   address: string;
 };
 
-export default class Client extends BaseEntity implements AggregateRoot {
+export class Client extends BaseEntity implements AggregateRoot {
   private _name: string;
   private _email: string;
   private _address: string;
@@ -21,15 +21,15 @@ export default class Client extends BaseEntity implements AggregateRoot {
     this._address = props.address;
   }
 
-  get name(): string {
+  get name() {
     return this._name;
   }
 
-  get email(): string {
+  get email() {
     return this._email;
   }
 
-  get address(): string {
+  get address() {
     return this._address;
   }
 }
