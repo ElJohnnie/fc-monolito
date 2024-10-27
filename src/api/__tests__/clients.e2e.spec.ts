@@ -1,9 +1,13 @@
-import { app, sequelize } from "../express";
+import { app, setupDb, sequelize } from "../express";
 import request from "supertest";
 
 describe("E2E test for client", () => {
-  beforeEach(async () => {
-    await sequelize.sync({ force: true });
+  beforeAll(async () => {
+    await setupDb();
+  });
+
+  afterEach(async () => {
+    await sequelize.truncate({ cascade: true });
   });
 
   afterAll(async () => {

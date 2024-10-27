@@ -1,4 +1,4 @@
-import { app, sequelize } from "../express";
+import { app, setupDb, sequelize } from "../express";
 import request from "supertest";
 
 import Id from "../../modules/@shared/domain/value-object/id.value-object";
@@ -8,8 +8,12 @@ import InvoiceRepository from "../../modules/invoices/repository/invoice.reposit
 import InvoiceItem from "../../modules/invoices/domain/invoice-item.entity";
 
 describe("E2E test for invoice", () => {
-  beforeEach(async () => {
-    await sequelize.sync({ force: true });
+  beforeAll(async () => {
+    await setupDb();
+  });
+
+  afterEach(async () => {
+    await sequelize.truncate({ cascade: true });
   });
 
   afterAll(async () => {

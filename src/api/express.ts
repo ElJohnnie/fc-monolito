@@ -14,6 +14,8 @@ import { productsRoute } from "./routes/product.route";
 import { clientsRoute } from "./routes/client.route";
 import { checkoutRoute } from "./routes/checkout.route";
 import { invoicesRoute } from "./routes/invoice.route";
+import { Umzug } from "umzug";
+import { migrator } from "../config/migrator";
 
 export const app: Express = express();
 app.use(express.json());
@@ -25,7 +27,9 @@ app.use("/invoice", invoicesRoute);
 
 export let sequelize: Sequelize;
 
-async function setupDb() {
+export let migration: Umzug<any>;
+
+export async function setupDb() {
   sequelize = new Sequelize({
     dialect: "sqlite",
     storage: ":memory:",
@@ -42,7 +46,9 @@ async function setupDb() {
     InvoiceItemModel,
   ]);
 
+  migration = migrator(sequelize)
+
+  await migration.up()
   await sequelize.sync();
 }
 
-setupDb();
