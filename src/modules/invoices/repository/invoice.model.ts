@@ -28,7 +28,7 @@ export class InvoiceModel extends Model {
   @Column({ allowNull: false })
   number: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: true })
   complement: string;
 
   @Column({ allowNull: false })
